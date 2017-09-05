@@ -1,8 +1,6 @@
 """
 Estimation of h using dadi.
-Assume:h
-1) Functional relation between h and s of the form 1/(1/h_intercept + h_rate*s)
-2) 2D distribution of s and h?
+Assume: Functional relation between h and s of the form 1/(1/h_intercept + h_rate*s)
 """
 
 import os, sys

@@ -1,13 +1,5 @@
 """
-Distribution functions to wrap demographics with scalar selection. Most of this code is
-modified dadi code, and the selection stuff is a modified version of the script found
-here: https://groups.google.com/forum/#!topic/dadi-user/4xspqlITcvc
-
-There are a few changes to the integration, so that anything below the lower bound is
-assumed to be effectively neutral; and anything above the lower bound
-is assumed to not be segregating, and weighted 0.
-
-To do: properly define a spectra class to make pickling easier
+Functions for two-population inference of dominance
 """
 
 import os, sys

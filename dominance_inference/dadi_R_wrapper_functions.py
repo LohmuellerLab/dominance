@@ -7,10 +7,6 @@ Created on Mon Feb 23 10:10:54 200015
 """
 
 import os, sys
-#os.chdir("/Users/christian/work/DFE_comparison/Analyses/GeneExpression_Analysis/dadi_scripts")
-#sys.path.append("/Users/christian/anaconda/lib/python2.7/site-packages/dadi-1.6.3-py2.7-macosx-10.5-x86_64.egg")   # need to tell him where dadi is
-#sys.path.append("/Users/christian/anaconda/lib/python2.7/site-packages/mpmath-0.19-py2.7.egg/")   # need to tell him where mpmath is
-sys.path.append("/Users/christian/work/dominance/dadi_scripts/")   # need to tell him where modules are is!!! Note that this has to be changed when run from different computer!!
 from matplotlib import *
 #import pickle
 #import Dominance_onePop
