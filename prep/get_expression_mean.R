@@ -1,0 +1,5 @@
+library(data.table)
+expr <- data.frame(fread("data//GSE80744_ath1001_tx_norm_2016-04-21-UQ_gNorm_normCounts_k4.tsv"))
+med.expr <- apply(expr[,2:ncol(expr)], 1, median) 
+df <- cbind(expr$gene_id, med.expr)
+write.table(df, "data/median_expression.tsv", row.names = F, col.names = F, quote = F)
