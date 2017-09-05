@@ -1,0 +1,14 @@
+To run full inference on genome-wide SFS data, type:
+
+python2.7 dominance_inference_arabidopsis.py
+
+This estimates:
+
+1) Demographic parameters of a three-epoch model for synonymous SFS from A. lyrata and A. thaliana
+2) Parameters of a gamma DFE and parameters of the constant h and h-s relationship model, using 
+	2.1) Only the SFS data from A. lyrata
+	2.2) Only the SFS data from A. thaliana
+	2.3) Both the SFS data from A. lyrata and A. thaliana
+
+Results are written to Excel file "results_table_dominance.xlsx". 
+Some basic plotting (comparing observed and expected SFS) is done within the script, but not written to file.
