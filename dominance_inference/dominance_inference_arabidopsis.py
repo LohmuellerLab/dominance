@@ -74,12 +74,12 @@ if True:
 popt_1_array, popt_1 = pickle.load(open('demo_lyrata','rb'))
 popt_2_array, popt_2 = pickle.load(open('demo_thaliana','rb'))
 
-theta_S1 = dadi.Inference.optimal_sfs_scaling(dadi_R_wrapper_functions.three_epoch_ex(popt_1, sfs_S1.sample_sizes, [100,120,140]), sfs_S1_noMask)
+theta_S1 = dadi.Inference.optimal_sfs_scaling(dadi_R_wrapper_functions.three_epoch_ex(popt_1, sfs_S1_noMask.sample_sizes, [100,120,140]), sfs_S1_noMask)
 theta_NS1 = 2.31*theta_S1   # ratio 2.31 for nonsynonymous to synonymous mutation rate
 L1 = float(raw1[7])/(2.31+1)   # Effective sequence length for synonymous mutations
 NeAnc1 = theta_S1/(4*L1*0.7e-8)
 
-theta_S2 = dadi.Inference.optimal_sfs_scaling(dadi_R_wrapper_functions.three_epoch_ex(popt_2, sfs_S2.sample_sizes, [100,120,140]), sfs_S2_noMask)
+theta_S2 = dadi.Inference.optimal_sfs_scaling(dadi_R_wrapper_functions.three_epoch_ex(popt_2, sfs_S2_noMask.sample_sizes, [100,120,140]), sfs_S2_noMask)
 theta_NS2 = 2.31*theta_S2   # ratio 2.31 for nonsynonymous to synonymous mutation rate
 L2 = float(raw2[7])/(2.31+1)   # Effective sequence length for synonymous mutations
 NeAnc2 = theta_S2/(4*L2*0.7e-8)
