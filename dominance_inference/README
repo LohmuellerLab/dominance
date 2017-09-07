@@ -1,8 +1,13 @@
 To run full inference on genome-wide SFS data:
 
+1) Install dadi: https://bitbucket.org/gutenkunstlab/dadi/
+2) Download the "dominance_inference" folder from https://github.com/LohmuellerLab/dominance
+3) cd into the folder
+4) Run the inference script with python 2.7:
+
 python2.7 dominance_inference_arabidopsis.py
 
-This estimates:
+This uses the SFS data in Lyrata_SFS.txt and Thaliana_SFS.txt to estimates:
 
 1) Demographic parameters of a three-epoch model for synonymous SFS from A. lyrata and A. thaliana
 2) Parameters of a gamma DFE and parameters of the constant h and h-s relationship model, using 
@@ -11,4 +16,6 @@ This estimates:
 	2.3) Both the SFS data from A. lyrata and A. thaliana
 
 Results are written to Excel file "results_table_dominance.xlsx". 
-Some basic plotting (comparing observed and expected SFS) is done within the script, but not written to file.
+Some basic plotting (comparing observed and expected SFS) is done within the script, but is not written to a file.
+
+For more more details see the inference script "dominance_inference_arabidopsis.py"
