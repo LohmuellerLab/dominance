@@ -1,4 +1,4 @@
-To run full inference on genome-wide SFS data, type:
+To run full inference on genome-wide SFS data:
 
 python2.7 dominance_inference_arabidopsis.py
 
