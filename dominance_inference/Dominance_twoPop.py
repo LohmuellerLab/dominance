@@ -4,14 +4,10 @@ Functions for two-population inference of dominance
 
 import os, sys
 import numpy
-from numpy import logical_and, logical_not
-from scipy.special import gammaln
 import scipy.stats.distributions
 import scipy.integrate
 import scipy.optimize
-import functools
-from dadi import Numerics, Inference, Misc
-from dadi.Spectrum_mod import Spectrum
+from dadi import Inference, Misc
 
 try:
     import cPickle as pickle

@@ -5,21 +5,15 @@ Assume: Functional relation between h and s of the form 1/(1/h_intercept + h_rat
 
 import os, sys
 import numpy
-from numpy import logical_and, logical_not
-from scipy.special import gammaln
 import scipy.stats.distributions
 import scipy.integrate
 import scipy.optimize
-import functools
 from dadi import Numerics, Inference, Misc
 from dadi.Spectrum_mod import Spectrum
 from scipy.interpolate import CubicSpline
-import mpmath
 import math
 from joblib import Parallel, delayed
-import multiprocessing
-import shelve
-import gc
+from mpmath import mp
 
 try:
     import cPickle as pickle
@@ -217,7 +211,7 @@ def demo_selection_dist(params, ns, sel_dist, theta, cache):
     return integrated_fs * theta
 
 
-# Here, for now the above function is just copied...
+# Here, for now the above function is just copied to allow inference under the alternative h-s relationship
 def demo_selection_distINV(params, ns, sel_dist, theta, cache):
     """
     sel_dist should be a function that is evaluated PDF(X) = func(x, param1, param2 ..., paramn)
@@ -517,7 +511,6 @@ def normal_dist(mgamma, mu, sigma):
     return scipy.stats.distributions.norm.pdf(-mgamma, loc=mu, scale=sigma)
  
  
-from mpmath import mp
 mp.dps = 50 
  
 def gamma_rice_dist(mgamma, alpha, beta, NeInv, Ne_scal, scal_fac=1):  # Note that Ne_scal should be Ne_anc
@@ -536,7 +529,7 @@ def gamma_rice_dist(mgamma, alpha, beta, NeInv, Ne_scal, scal_fac=1):  # Note th
 # In equilibrium
   
 
-def lourenco_eq_dist_mp(mgamma, m, sigma, Ne, Ne_scal, scal_fac=1):   # not sure if I do it right with the scale factor...
+def lourenco_eq_dist_mp(mgamma, m, sigma, Ne, Ne_scal, scal_fac=1):  
      s = mgamma/2./Ne_scal*scal_fac
      #s = mgamma
      prob = mp.power(2, (1-m)/2.)*mp.power(Ne, 0.5)*mp.power(mp.fabs(s), (m-1)/2.)*(1+1/(Ne*mp.power(sigma, 2.)))*mp.exp(-Ne*s) / (mp.power(mp.pi,0.5)*mp.power(sigma, m)*mp.gamma(m/2.)) * mp.besselk((m-1)/2., Ne*mp.fabs(s)*mp.power(1+1/(Ne*mp.power(sigma, 2.)),0.5))
@@ -551,7 +544,7 @@ def lourenco_eq_dist(mgamma, m, sigma, Ne, Ne_scal, scal_fac=1):
     
 # Not in equilibrium
     
-def lourenco_dist_mp(mgamma, z, n, m, sigma, Ne, Ne_scal, scal_fac=1):   # not sure if I do it right with the scale factor...
+def lourenco_dist_mp(mgamma, z, n, m, sigma, Ne, Ne_scal, scal_fac=1):   
      s = mgamma/2./Ne_scal*scal_fac
      if s==0:
          return numpy.nan
