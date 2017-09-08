@@ -1,9 +1,10 @@
 To run full inference on genome-wide SFS data:
 
 1) Install dadi: https://bitbucket.org/gutenkunstlab/dadi/
-2) Download the "dominance_inference" folder from https://github.com/LohmuellerLab/dominance
-3) cd into the folder
-4) Run the inference script with python 2.7:
+2) Make sure that the python packages scipy, numpy, matplotlib, joblib, and mpmath are installed.
+3) Download the "dominance_inference" folder from https://github.com/LohmuellerLab/dominance
+4) cd into the folder
+5) Run the inference script with python 2.7 (other versions of python are not tested):
 
 python2.7 dominance_inference_arabidopsis.py
 
